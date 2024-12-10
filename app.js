@@ -1,6 +1,9 @@
 const options = ["rock", "paper", "scissors"];
 
-let playerChoice = null;
+let humanChoice;
+let humanScore = 0;
+let computerScore = 0;
+
 
 function getComputerChoice() {
   const randomOption = Math.floor(Math.random() * 3);
@@ -9,9 +12,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  playerChoice = +prompt("Get an option\n 0 - Rock\n 1 - Paper\n 2 - Scissors");
+  humanChoice = +prompt("Get an option\n 0 - Rock\n 1 - Paper\n 2 - Scissors");
 }
 
 getHumanChoice();
 
-console.log(playerChoice);
+console.log(humanChoice);
