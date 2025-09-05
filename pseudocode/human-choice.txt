@@ -1,0 +1,11 @@
+FUNCTION getHumanChoice RETURNING choice
+  PRINT "Choose between rock, paper or scissors"
+  READ choice 
+  RETURN choice
+END FUNCTION
+
+
+CALL getHumanChoice Returning choice
+// OUTPUT OUTCOME
+// rock
+// papper
