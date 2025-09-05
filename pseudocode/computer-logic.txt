@@ -1,0 +1,18 @@
+FUNCTION getComputerChoice RETURN choice 
+  SET randomNumber to a number between 0 and 2 inclusive
+
+  IF randomNumber is equal to 0 THEN
+    RETURN "rock"
+  ELSEIF randomNumber is equal to 1 THEN
+    RETURN "paper"
+  ELSE
+    RETURN "scissors"
+  ENDIF
+
+ENDFUNCTION
+
+CALL getComputerChoice returning choice
+# OUTPUT OUTCOME
+# rock
+# paper
+# scissors
