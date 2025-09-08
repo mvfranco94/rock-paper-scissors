@@ -1,15 +1,26 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
+playGame();
 
-playRound(humanChoice, computerChoice);
+function playGame() {
+  for (let i = 0; i < 5; i++) {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
 
-console.log("humanChoice: ", humanChoice);
-console.log("humanScore: ", humanScore);
-console.log("computerChoice: ", computerChoice);
-console.log("computerScore: ", computerScore);
+    playRound(humanChoice, computerChoice);
+    console.log(`human ${humanScore} x ${computerScore} computer`);
+  }
+
+  if (humanScore > computerScore) {
+    console.log("The winner was YOU! Congratulations!");
+  }
+  else if (humanScore < computerScore) {
+    console.log("The winner was the COMPUTER! Sorry, try again!");
+  } else {
+    console.log("There's no winner! It was a DRAW!");
+  }
+}
 
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase();
