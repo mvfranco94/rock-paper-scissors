@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   // set randomNumber to a number between
   // 0 and 2
@@ -21,3 +24,4 @@ function getHumanChoice() {
 }
 
 console.log(getHumanChoice());
+console.log(getComputerChoice());
