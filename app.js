@@ -17,48 +17,31 @@ function playGame() {
   }
   else if (humanScore < computerScore) {
     console.log("The winner was the COMPUTER! Sorry, try again!");
-  } else {
+  }
+  else {
     console.log("There's no winner! It was a DRAW!");
   }
 }
 
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase();
-  computerChoice = computerChoice.toLowerCase();
+
+  console.log("human\tx\tcomputer");
+  console.log(`${humanChoice}\t \t${computerChoice}`);
 
   if (humanChoice === computerChoice) {
     console.log("It's a draw.");
     return;
   }
-  else if (humanChoice === "rock") {
-    if (computerChoice === "paper") {
-      console.log(`You lose! ${computerChoice} beats ${humanChoice}.`)
-      computerScore++;
-    }
-    else {
-      console.log(`You Win! ${humanChoice} beats ${computerChoice}.`)
-      humanScore++;
-    }
-  }
-  else if (humanChoice === "paper") {
-    if (computerChoice === "scissors") {
-      console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
-      computerScore++;
-    }
-    else {
-      console.log(`You Win! ${humanChoice} beats ${computerChoice}.`);
-      humanScore++;
-    }
-  }
-  else if (humanChoice === "scissors") {
-    if (computerChoice === "paper") {
-      console.log(`You lose! ${computerChoice} beats ${humanChoice}.`)
-      computerScore++;
-    }
-    else {
-      console.log(`You Win! ${humanChoice} beats ${computerChoice}.`)
-      humanScore++;
-    }
+  else if (humanChoice === "rock" && computerChoice === "paper" ||
+    humanChoice === "paper" && computerChoice === "scissors" ||
+    humanChoice === "scissors" && computerChoice === "rock") {
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}.`)
+    computerScore++;
+  } 
+  else {
+    console.log(`You Win! ${humanChoice} beats ${computerChoice}.`)
+    humanScore++;
   }
 }
 
