@@ -12,6 +12,14 @@ let round = 0;
 initializeGame();
 resetOptions();
 
+start.addEventListener("click", () => {
+  options.addEventListener("click", optionSelected);
+  start.style.display = "none";
+  options.style.display = "inherit";
+  initializeGame();
+});
+
+
 function playRound(humanChoice, computerChoice) {
   round++;
 
@@ -62,7 +70,6 @@ function getComputerChoice() {
 function resetOptions() {
   start.style.display = "inherit";
   options.style.display = "none";
-  
 }
 
 function initializeGame() {
@@ -70,18 +77,11 @@ function initializeGame() {
   computerScore = 0;
   round = 0;
   result.textContent = "";
-  updateScore();
   winner.textContent = "";
+  updateScore();
 }
 
-start.addEventListener("click", () => {
-  options.addEventListener("click", optionSelected);
-  start.style.display = "none";
-  options.style.display = "inherit";
-  initializeGame();
-});
-
-
+// callback function to get the human option
 function optionSelected(e) {
   let humanChoice;
   switch (e.target.id) {
@@ -105,8 +105,6 @@ function optionSelected(e) {
     resetOptions();
     start.textContent = "Restart?";
   }
-
-  
 }
 
 function addRoundResult(humanChoice, computerChoice, message) {
