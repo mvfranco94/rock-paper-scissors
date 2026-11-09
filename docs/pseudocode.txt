@@ -1,9 +1,9 @@
-FUNCTION getComputerChoice() AS STRING
-  INITIALIZE randomNumber as INTEGER
-  SET randomNumber to a number between 0 and 2 (inclusively) 
-  CALL choice with randomNumber as parameter
-  RETURN the result of choice
-ENDFUNCTION
+INITIALIZE computerScore
+SET computerScore to 0
+Initialize humanScore
+SET human Score to 0
+
+CALL playRound with CALL getComputerChoice and CALL getHumanChoice as parameters
 
 FUNCTION choice(number as INTEGER) AS STRING
   IF number is equal to 0 THEN
@@ -15,8 +15,38 @@ FUNCTION choice(number as INTEGER) AS STRING
   ENDIF
 ENDFUNCTION
 
+
+FUNCTION displayMessage(message as String, winnerChoice as String, loserChoice as String)
+  display message + " " + winnerCHoice + " beats " + loserChoice
+ENDFUNCTION
+
+FUNCTION getComputerChoice() AS STRING
+  INITIALIZE randomNumber as INTEGER
+  SET randomNumber to a number between 0 and 2 (inclusively) 
+  CALL choice with randomNumber as parameter
+  RETURN the result of choice
+ENDFUNCTION
+
 FUNCTION getHumanChoice() As STRING
   GET users choice
   SET usersChoice to users input
   RETURN usersChoice
 END FUNCTION 
+
+FUNCTION playRound(computerChoice as String, humanChoice AS String) As VOID
+  SET humanChoice to humanChoice lowercase
+
+  IF computerChoice is equal to humanChoice THEN
+    DISPLAY "It's a tie"
+  ELSE IF (computerChoice is equal to "rock" AND humanChoice is equal to "scissors")
+   OR (computerChoice is equal to "paper" AND humanChoice is equal to "rock")
+   OR (computerChoice is equal to "scissors" AND humanCHoice is equal to "paper")
+  THEN
+    CALL displayMessage("You Lose!", computerChoice, humanChoice)
+    SET computer to computerScore + 1
+  ELSE 
+    CALL displayMessage("You Win!", computerChoice, humanChoice)
+    SET humanScore to humanScore + 1
+  ENDIF
+
+ENDFUNCTION
