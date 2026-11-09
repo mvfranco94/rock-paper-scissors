@@ -3,7 +3,7 @@ SET computerScore to 0
 Initialize humanScore
 SET human Score to 0
 
-CALL playRound with CALL getComputerChoice and CALL getHumanChoice as parameters
+CALL playGame
 
 FUNCTION choice(number as INTEGER) AS STRING
   IF number is equal to 0 THEN
@@ -49,4 +49,21 @@ FUNCTION playRound(computerChoice as String, humanChoice AS String) As VOID
     SET humanScore to humanScore + 1
   ENDIF
 
+ENDFUNCTION
+
+FUNCTION playGame() AS VOID
+  FOR i FROM 0 to 4
+    CALL playRound with CALL getComputerChoice and CALL getHumanChoice as parameters
+  ENDFOR
+
+  IF humanScore is greater than computerScore THEN
+    DISPLAY "You win!
+    DISPLAY "computer " + computerScore + " vs " + humanScore + "human"
+  ELSE IF computerScore is greater than humanScore THEN
+    DISPLAY "You lose!
+    DISPLAY "computer " + computerScore + " vs " + humanScore + "human"
+  ELSE
+    DISPLAY "It's a tie!
+    DISPLAY "computer " + computerScore + " vs " + humanScore + "human"
+  ENDIF
 ENDFUNCTION

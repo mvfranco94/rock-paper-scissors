@@ -1,7 +1,7 @@
 let computerScore = 0;
 let humanScore = 0;
 
-playRound(getComputerChoice(), getHumanChoice());
+playGame();
 
 /* This function is responsible
  * to return the corespondent choice 
@@ -32,10 +32,27 @@ function getHumanChoice() {
   return humanChoice;
 }
 
+function playGame() {
+  for (let i = 0; i < 5; i++) {
+    playRound(getComputerChoice(), getHumanChoice());
+  }
+
+  if (computerScore > humanScore) {
+    console.log("You lose the game!");
+    console.log(`computer ${computerScore} vs ${humanScore} human`);
+  } else if(humanScore > computerScore) {
+    console.log("You win the game!");
+    console.log(`computer ${computerScore} vs ${humanScore} human`);
+  } else {
+    console.log("It's a tie!");
+    console.log(`computer ${computerScore} vs ${humanScore} human`);
+  }
+}
+
 function playRound(computerChoice, humanChoice) {
   humanChoice = humanChoice.toLowerCase();
 
-  console.log("computer:", computerChoice, "vs human:", humanChoice);
+  console.log("computer", computerChoice, "vs ", humanChoice, "human");
 
   if (computerChoice === humanChoice) {
     console.log("It's a tie");
@@ -47,5 +64,6 @@ function playRound(computerChoice, humanChoice) {
     computerScore++;
   } else {
     displayMessage("You win!", humanChoice, computerChoice);
+    humanScore++;
   }
 }
