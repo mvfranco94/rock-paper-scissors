@@ -17,3 +17,8 @@ function choice(number) {
     return "scissors"
   }
 }
+
+function getHumanChoice() {
+  const humanChoice = prompt("What's your play?");
+  return humanChoice;
+}

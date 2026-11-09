@@ -1,0 +1,22 @@
+FUNCTION getComputerChoice() AS STRING
+  INITIALIZE randomNumber as INTEGER
+  SET randomNumber to a number between 0 and 2 (inclusively) 
+  CALL choice with randomNumber as parameter
+  RETURN the result of choice
+ENDFUNCTION
+
+FUNCTION choice(number as INTEGER) AS STRING
+  IF number is equal to 0 THEN
+    RETURN "rock"
+  ELSE IF number is equal to 1 THEN
+    RETURN "paper"
+  ELSE IF number is equal to 2 THEN
+    RETURN "scissors"
+  ENDIF
+ENDFUNCTION
+
+FUNCTION getHumanChoice() As STRING
+  GET users choice
+  SET usersChoice to users input
+  RETURN usersChoice
+END FUNCTION 
